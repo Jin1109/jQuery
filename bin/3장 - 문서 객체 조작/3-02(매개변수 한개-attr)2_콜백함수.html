@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	img{width:100px;}
+</style>
+<script src="../js/jquery-3.6.0.js"></script>
+<script>
+	$(document).ready(function() {
+		$('img').attr("src", function(index, attrValue){
+								var s = "index = " + index + " , " + attrValue;
+								console.log(s);
+								}//functon			
+					);//attr			
+	});//ready
+</script>
+<!-- 
+	attr()메소드
+	1. $(selector).attr(name);
+	2. $(selector).attr(name, value);
+	3. $(selector).attr(name, function(index, attr){});
+	
+ -->
+</head>
+<body>
+	<img src="../image/image1.png" alt="image1.png">
+	<img src="../image/image2.png" alt="image2.png">
+	<img src="../image/image3.png" alt="image3.png">
+</body>
+
+</html>

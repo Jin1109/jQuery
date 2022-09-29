@@ -1,0 +1,25 @@
+<!-- 4-11(매개 변수 2개인 on()메서드).html -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.6.0.js"></script>
+<!-- 매개 변수 2개인 on()메서드 -->
+<!-- 추가된 p태그는 클릭해도 이벤트 발생하지 않습니다. -->
+<script>
+   $(document).ready(function() {
+	   
+	   var count=0;
+	   //상위 태그에 이벤트를 연결하고 p태그를 클릭했을 때의 방식으로 구현
+	   $('body').on('click', 'p', function () {
+	   	   $(this).after("<p> 추가된 paragraph! " + count++ + "</p>");
+	   })
+   });   
+</script>
+</head>
+<body>
+	<p>Click me!</p>
+	<span>end</span>
+</body>
+</html>

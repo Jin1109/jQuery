@@ -1,0 +1,80 @@
+<!-- 4-11(매개 변수 2개인 on()메서드).html -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	margin: 0 auto;
+	width: 500px
+}
+
+h3{
+	background: #a4d7e4;
+	text-align: center;
+	width: 30%;
+	height: 3em;
+	line-height: 3em;
+}
+
+span{
+	color:red;
+}
+
+tesatareas {
+	resize: none;
+}
+
+textarea:focus {
+	border: 2px solid green;
+	outline:none
+}
+</style>
+<script src="../js/jquery-3.6.0.js"></script>
+<!-- * 너비와 높이, 투명도가 변화 
+	1. show( ) 		: 숨겨진 요소를 화면에 표시한다.
+	2. hide( ) 		: 화면의 요소를 화면에서 표시하지 않게 한다.
+	3. toggle( )	: show( ) 와 hide( )를 반복한다.
+	
+	toggle(speed)메서드 : show()메서드와 hide()메서드를 번갈아 실행합니다.
+	speed:밀리초 단위의 숫자나 문자열 slow(600밀리초), normal(400밀리초),
+		  fast(200밀리초) 를 입력합니다.
+		  
+	* 투명도 변환
+	4. fadeIn( ) 	: 숨겨진 요소를 화면에 표시한다.	  	
+	5. fadeOut( ) 	: 숨겨진 요소를 화면에 표시하지 않게 한다.	  	
+	6. fadeToggle( ): fadeIn( ) 와 fadeOut( )를 반복한다.
+	
+	* 높이 변환
+	7. SlideDown( ) : 숨겨진 요소를 화면에 표시한다.
+	8. slideUp( )	: 화면의 요소를 화면에서 표시하지 않게 한다.
+	9. slideToggle( ) : slideDown( ) 와 slideUp( )를 반복한다.
+	
+	-toggle은 두 함수를 반복하여 나타낸다.	
+	-상태변화가 완료된 후에는 display 상태를 block 또는 none으로 변경한다.
+	- 함수의 ( )안에는 시간을 설정하여 사라지고 나타나는데 걸리는 시간을 설정할 수 있다.
+	※ (1000) = 1초  	
+-->
+
+<script>
+        $(document).ready(function (event){
+	        $('textarea').keyup(function(){
+	        //남은 글자 수를 구합니다.
+	        var inputLength = $(this).val().length;
+	        var remain = $(this).attr('maxLength') - inputLength;
+	        		
+	        //문서 객체에 입력합니다.
+			$('h3').html("남은글자수 : <span>" + remain + "</span>")
+				   .css('width', '10em');
+	        });
+		});
+        
+    </script>
+</head>
+<body>
+	<p>지금 내 생각을 150자로 정리하세요</p>
+	<h3>최대 150자</h3>
+	<textarea cols="70" rows="5" maxlength="150"></textarea>
+</body>
+</html>

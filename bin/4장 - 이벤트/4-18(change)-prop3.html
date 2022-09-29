@@ -1,0 +1,35 @@
+<!-- 4-11(매개 변수 2개인 on()메서드).html -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- type 속성이 checkbox와 radio인 input 태그의 상태를 변경하는
+				이벤트는 change 입니다. -->
+<script src="../js/jquery-3.6.0.js"></script>
+<!-- 입력 양식(input태그, textarea)에서 발생하는 알림을 처리할 경우 입력 양식 이벤트를 사용합니다.
+	 change : 입력 양식의 내용을 변경할 때 발생합니다.
+	 		  (type 속성이 checkbox와 radio인 경우)
+     submit : submit 버튼을 누를 때 발생합니다. -->
+<script>
+	$(document).ready(function () {
+		$('#all-check').change(function () {
+			console.log($(this).is(':checked'));
+			$('#check-item>input:checkbox').prop('checked', $(this).is(':checked'));
+		})
+	});
+</script>
+</head>
+<body>
+	
+	<label><input type="checkbox" id="all-check">All</label>
+	<div id="check-item">
+		<input type="checkbox">
+		<label>A Option</label>
+		<input type="checkbox">
+		<label>B Option</label>
+		<input type="checkbox">
+		<label>C Option</label>
+	</div>
+</body>
+</html>

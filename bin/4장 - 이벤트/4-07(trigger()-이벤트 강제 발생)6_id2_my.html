@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.6.0.js"></script>
+<style>
+#start, #end{
+	width:100px;
+	height:30px;
+	background-color:green;
+	color:white;
+	border:none;
+}
+
+#start:hover,#end:hover{
+	opacity:0.7;
+	cursor:pointer; 
+	
+}
+
+#start, #end:disabled{
+	cursor: not-allowed;
+	background-color : gray;
+	color :white;
+}
+
+#start, #end:enabled{ 
+	cursor: pointer;
+	background-color : green;  
+	color :white;
+}
+</style>
+
+<!-- trigger() : 이벤트를 강제로 발생 시킵니다.
+			형식) trigger(eventname)
+  -->
+<script>
+   $(document).ready(function() {
+	   // 이벤트를 연결합니다.
+	   $('h1').click(function () {
+		   $(this).html(function (index, html){
+			   return html + '★';
+		   })
+	   });
+	   
+	   
+	   $('#end').click(function () {
+		   alert("트리커가 종료되었습니다.")
+		    clearInterval(timer);//타이머 종료
+		    
+		    end.disabled=true;
+			end.style.backgroundColor="gray"
+			
+				start.value="트리거 시작"
+			start.disabled=false;
+			start.style.backgroundColor='green';
+	   });
+	   
+	   $('#start').click(function () {
+		   alert("트리커가 시작되었습니다.")
+		   timer = setInterval(function () {
+			 $('h1:last').trigger('click');
+	         }, 1000);
+		   
+		   	start.value="시작중..."
+		   	start.disabled=true;//start버튼 비활성
+			start.style.backgroundColor='gray';
+			start.style.color='white';
+			
+			end.disabled=false;//stop버튼 활성동
+			end.style.backgroundColor='red';
+			end.style.color='white';
+		   });
+		   	
+	   // 1초마다 함수를 실행합니다.
+	   // 마지막에 위치한 h1태그는 자동으로 1초 마다 클릭 이벤트를 실행합니다.
+	   
+   });   
+</script>
+</head>
+<body>
+	<h1>Start: </h1>
+	<h1>Start: </h1>
+	<input type="button" value="트리거 시작" id="start">
+	<input type="button" value="트리거 종료" id="end">
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!-- 3-2(addClass()메서드의 콜백함수 사용).html -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="../js/jquery-3.6.0.js"></script>
+<style>
+	div{width:100px; height:100px;}
+	.box0{background: orange}
+	.box1{background: yellow}
+	.box2{background: pink}
+</style>
+<!-- addClass(function (index) {})메서드이 콜백함수 -->
+<script>
+$(document).ready(function() {
+	$("div").addClass(function (index) {
+						return 'box' + index;
+	});
+});
+</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+
+</html>
